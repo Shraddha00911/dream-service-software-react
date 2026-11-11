@@ -1,0 +1,366 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: v.$white;
+  border-bottom: 1px solid v.$color-line;
+  box-shadow: 0 2px 6px rgba(40, 48, 61, 0.06);
+}
+
+.header-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: v.$spacing-md;
+  min-height: 80px;
+}
+
+.logo {
+  display: block;
+  flex-shrink: 0;
+
+  img,
+  .img-slot {
+    width: auto;
+    height: 52px;
+    min-width: 150px;
+  }
+}
+
+// ---------- Desktop nav ----------
+.main-nav {
+  margin-left: auto;
+
+  > ul {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .nav-item {
+    position: relative;
+
+    > a,
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.6rem 0.9rem;
+      background: none;
+      border: 0;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      color: v.$color-heading;
+      cursor: pointer;
+
+      &:hover,
+      &.active {
+        color: v.$color-green;
+      }
+    }
+  }
+}
+
+// Chevron (CSS, rotates when open)
+.caret {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-left: 8px;
+  margin-bottom: 3px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.nav-item.sub-open .caret {
+  transform: rotate(-135deg);
+  margin-bottom: -3px;
+}
+
+.dropdown,
+.mega {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background: v.$white;
+  border: 1px solid v.$color-line;
+  border-radius: v.$radius-md;
+  box-shadow: v.$shadow-menu;
+
+  a {
+    display: block;
+    padding: 0.45rem 0.7rem;
+    color: v.$color-gray-mid;
+    border-radius: v.$radius-sm;
+    font-size: 0.92rem;
+
+    &:hover {
+      background: v.$light-green;
+      color: v.$color-green;
+    }
+  }
+}
+
+.dropdown {
+  left: 0;
+  min-width: 260px;
+  padding: 0.5rem;
+}
+
+// Mega menu spans the header container (anchored to .header-inner, not the nav item)
+.nav-item:has(> .mega) {
+  position: static;
+}
+
+.mega {
+  left: v.$container-gutter;
+  right: v.$container-gutter;
+  grid-template-columns: repeat(4, 1fr);
+  gap: v.$spacing-md;
+  padding: v.$spacing-md;
+
+  // invisible bridge so the menu doesn't close while moving the mouse down to it
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -30px;
+    height: 30px;
+  }
+
+  h4 {
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: v.$color-label;
+
+    a {
+      display: inline;
+      padding: 0;
+      color: inherit;
+    }
+  }
+}
+
+@include m.up(v.$breakpoint-desktop) {
+  .has-sub:hover,
+  .has-sub:focus-within {
+    .dropdown {
+      display: block;
+    }
+    .mega {
+      display: grid;
+    }
+  }
+}
+
+// ---------- Header buttons (Login / Schedule A Demo) ----------
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  .btn {
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .btn-ghost {
+    border-color: v.$color-green;
+    color: v.$color-green;
+
+    &:hover {
+      background: v.$color-green;
+      color: v.$white;
+    }
+  }
+}
+
+.menu-toggle {
+  display: none;
+}
+
+// ---------- Mobile / tablet (below 1024px) ----------
+@include m.down(v.$breakpoint-desktop) {
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "logo cta"
+      "logo toggle";
+    align-items: start;
+    row-gap: 10px;
+    min-height: 0;
+    padding-top: 10px;
+    padding-bottom: 22px;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .header-cta {
+    grid-area: cta;
+    justify-self: end;
+  }
+
+  // Green "Menu" button overlapping the header's bottom edge
+  .menu-toggle {
+    grid-area: toggle;
+    justify-self: end;
+    align-self: end;
+    position: relative;
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: -40px;
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: v.$radius-sm;
+    background: v.$color-green-dark;
+    color: v.$white;
+    font-family: v.$font-primary;
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.2;
+    cursor: pointer;
+
+    &-icon {
+      font-size: 1.1rem;
+    }
+  }
+
+  // Green panel
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 55;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 2.6rem v.$container-gutter 1.2rem;
+    background: v.$color-green;
+
+    &.is-open {
+      display: block;
+    }
+
+    > ul {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .nav-item > a,
+    .nav-item .nav-btn {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.7rem 0;
+      color: v.$white;
+      font-size: 1.1rem;
+      text-align: left;
+
+      &:hover,
+      &.active {
+        color: v.$white;
+      }
+    }
+
+    .nav-item.sub-open .nav-label {
+      text-decoration: underline dotted;
+      text-underline-offset: 5px;
+    }
+  }
+
+  // White sub-menu panel
+  .dropdown,
+  .mega {
+    position: static;
+    width: auto;
+    margin: 0.3rem 0 0.7rem;
+    padding: 0.9rem 1.6rem;
+    border: 0;
+    border-radius: v.$radius-md;
+    box-shadow: none;
+  }
+
+  .has-sub.sub-open {
+    .dropdown,
+    .mega {
+      display: block;
+    }
+  }
+
+  .mega {
+    &::before {
+      display: none;
+    }
+
+    h4 {
+      margin: 0.5rem 0 0.2rem;
+      font-weight: 700;
+    }
+
+    .mega-col + .mega-col {
+      margin-top: 0.4rem;
+    }
+  }
+
+  .dropdown a,
+  .mega a {
+    padding: 0.55rem 0;
+    color: v.$color-dark;
+    font-size: 1rem;
+
+    &:hover {
+      background: none;
+      color: v.$color-green-dark;
+    }
+  }
+}
+
+// Small phones
+@include m.down(v.$breakpoint-mobile) {
+  .header-inner {
+    column-gap: 8px;
+  }
+
+  .logo,
+  .header-cta {
+    min-width: 0;
+  }
+
+  .logo {
+    img,
+    .img-slot {
+      min-width: 0;
+      width: 120px;
+      height: 42px;
+    }
+  }
+
+  .header-cta {
+    gap: 0.35rem;
+
+    .btn-sm {
+      padding: 0.3rem 0.65rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  .menu-toggle {
+    font-size: 1.15rem;
+  }
+}

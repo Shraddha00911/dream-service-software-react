@@ -1,0 +1,86 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.btn {
+  @include m.button-base;
+
+  &-primary {
+    background: v.$color-green;
+    color: v.$white;
+    border-color: v.$color-green;
+
+    &:hover {
+      background: v.$color-green-dark;
+      border-color: v.$color-green-dark;
+      color: v.$white;
+    }
+  }
+
+  &-ghost {
+    background: transparent;
+    color: v.$color-heading;
+    border-color: v.$color-line;
+
+    &:hover {
+      border-color: v.$color-green;
+      color: v.$color-green;
+    }
+  }
+
+  &-light {
+    background: v.$white;
+    color: v.$color-green-dark;
+    border-color: v.$white;
+
+    &:hover {
+      background: v.$color-green-light;
+      color: v.$color-green-dark;
+    }
+  }
+
+  &-sm {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  &-lg {
+    padding: 1rem 2.2rem;
+    font-size: 1.1rem;
+  }
+
+  // Arrow-in-circle icon on the right (hero / CTA buttons)
+  &-arrow {
+    gap: 0.9rem;
+    text-align: left;
+
+    &::after {
+      content: "→";
+      display: inline-grid;
+      flex-shrink: 0;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+  }
+
+  // Full-width on small screens
+  @include m.down(v.$breakpoint-tablet) {
+    &-lg {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      justify-content: space-between;
+    }
+  }
+}
+
+.link-arrow {
+  display: inline-block;
+  margin-top: v.$spacing-sm;
+  font-weight: 600;
+  color: v.$color-green;
+}

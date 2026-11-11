@@ -1,0 +1,11 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+// Generic inner pages (Contact, placeholder pages)
+.section .container > h1.h1 {
+  font-size: 3rem;
+
+  @include m.down(v.$breakpoint-tablet) {
+    font-size: 2.25rem;
+  }
+}

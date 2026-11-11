@@ -1,0 +1,37 @@
+@use "../abstracts/variables" as v;
+
+.form {
+  display: grid;
+  gap: v.$spacing-sm;
+  margin-top: v.$spacing-lg;
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid v.$color-input-border;
+    border-radius: v.$radius-sm;
+    font: inherit;
+    font-size: v.$font-size-label;
+    color: v.$color-text;
+
+    &::placeholder {
+      color: v.$color-label;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: v.$color-green;
+      box-shadow: 0 0 0 3px v.$color-focus;
+    }
+  }
+}
+
+.notice {
+  margin-top: v.$spacing-lg;
+  padding: 1.2rem;
+  border-radius: v.$radius-sm;
+  background: v.$light-green;
+  color: v.$color-green-dark;
+  text-align: center;
+}

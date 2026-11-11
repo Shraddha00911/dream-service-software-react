@@ -1,0 +1,172 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+// ---------- Hero (dark gray background) ----------
+.hero {
+  padding: 112px 0 v.$spacing-xl;
+  background: v.$color-dark-gray;
+  text-align: center;
+
+  h1 {
+    max-width: 960px;
+    margin: 0 auto v.$spacing-md;
+    color: v.$white;
+  }
+
+  .lead {
+    max-width: 820px;
+    font-size: v.$font-size-hero-subtitle;
+    line-height: v.$line-height-hero-subtitle;
+    color: v.$color-hero-subtitle;
+
+    @include m.down(v.$breakpoint-tablet) {
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+  }
+
+  @include m.down(v.$breakpoint-tablet) {
+    padding: 72px 0 48px;
+  }
+}
+
+// ---------- Trusted by ----------
+.trusted {
+  margin-top: v.$spacing-xl;
+
+  h6 {
+    margin-bottom: v.$spacing-md;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: v.$color-label;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: v.$spacing-sm v.$spacing-lg;
+  }
+
+  .img-slot {
+    width: 140px;
+    height: 56px;
+  }
+}
+
+// Trusted block on a light background (testimonials section)
+.bg-soft .trusted h6 {
+  color: v.$color-muted;
+}
+
+// ---------- Problem / old way ----------
+.old-way {
+  max-width: 820px;
+  margin: v.$spacing-lg auto;
+  padding: v.$spacing-lg;
+  border: 1px solid v.$light-red;
+  border-radius: v.$radius-md;
+  background: #fff7f7;
+
+  h3 {
+    color: v.$color-heading;
+  }
+}
+
+// ---------- Dream way ----------
+.steps li {
+  position: relative;
+  padding: 0.7rem 0 0.7rem 2rem;
+  border-bottom: 1px dashed v.$color-line;
+  color: v.$color-gray-mid;
+
+  strong {
+    color: v.$color-heading;
+  }
+
+  &::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: v.$color-green;
+  }
+}
+
+.two-col .img-slot {
+  width: 100%;
+  min-height: 320px;
+  border-radius: v.$radius-md;
+}
+
+// ---------- Story ----------
+.story-stats {
+  display: grid;
+  gap: v.$spacing-sm;
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-md;
+    padding: 1.4rem 1.8rem;
+    border-radius: v.$radius-md;
+    background: v.$color-light-gray;
+  }
+
+  strong {
+    min-width: 56px;
+    font-size: 2.4rem;
+    line-height: 1;
+    color: v.$color-green;
+  }
+
+  span {
+    font-weight: 500;
+    color: v.$color-secondary;
+  }
+}
+
+// ---------- Product callouts ----------
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: v.$spacing-lg;
+  margin-top: v.$spacing-xl;
+
+  h4 {
+    font-size: 1.25rem;
+    color: v.$color-heading;
+  }
+
+  @include m.down(v.$breakpoint-desktop) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ---------- CTA (dark gray background) ----------
+.cta {
+  padding: v.$section-padding 0;
+  background: v.$color-dark-gray;
+  text-align: center;
+
+  h2 {
+    max-width: 820px;
+    margin: 0 auto v.$spacing-sm;
+    color: v.$white;
+  }
+
+  p {
+    max-width: 720px;
+    margin: 0 auto v.$spacing-md;
+    color: v.$color-subheading-dark;
+  }
+
+  small {
+    display: block;
+    margin-top: v.$spacing-sm;
+    color: v.$color-label;
+  }
+}
