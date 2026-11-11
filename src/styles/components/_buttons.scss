@@ -38,9 +38,43 @@
     }
   }
 
+  &-sm {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+
   &-lg {
     padding: 1rem 2.2rem;
     font-size: 1.1rem;
+  }
+
+  // Arrow-in-circle icon on the right (hero / CTA buttons)
+  &-arrow {
+    gap: 0.9rem;
+    text-align: left;
+
+    &::after {
+      content: "→";
+      display: inline-grid;
+      flex-shrink: 0;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+  }
+
+  // Full-width on small screens
+  @include m.down(v.$breakpoint-tablet) {
+    &-lg {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      justify-content: space-between;
+    }
   }
 }
 

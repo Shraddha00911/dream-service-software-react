@@ -34,9 +34,11 @@ export default function Header() {
                   <button
                     type="button"
                     className="nav-btn"
+                    aria-expanded={openItem === item.label}
                     onClick={() => setOpenItem(openItem === item.label ? null : item.label)}
                   >
-                    {item.label} <span className="caret">▾</span>
+                    <span className="nav-label">{item.label}</span>
+                    <span className="caret" aria-hidden="true" />
                   </button>
                 )}
 
@@ -69,20 +71,24 @@ export default function Header() {
               </li>
             ))}
           </ul>
-
-          <div className="header-cta mobile-only">
-            <a className="btn btn-ghost" href="https://www.pestream.com/" target="_blank" rel="noreferrer">Login</a>
-            <Link className="btn btn-primary" to="/contact" onClick={close}>Schedule A Demo</Link>
-          </div>
         </nav>
 
-        <div className="header-cta desktop-only">
-          <a className="btn btn-ghost" href="https://www.pestream.com/" target="_blank" rel="noreferrer">Login</a>
-          <Link className="btn btn-primary" to="/contact">Schedule A Demo</Link>
+        <div className="header-cta">
+          <a className="btn btn-ghost btn-sm" href="https://www.pestream.com/" target="_blank" rel="noreferrer">Login</a>
+          <Link className="btn btn-primary btn-sm" to="/contact" onClick={close}>Schedule A Demo</Link>
         </div>
 
-        <button className="burger" aria-label="Toggle menu" onClick={() => setOpen(!open)}>
-          <span /><span /><span />
+        <button
+          type="button"
+          className={`menu-toggle ${open ? "is-open" : ""}`}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          onClick={() => {
+            setOpen(!open);
+            setOpenItem(null);
+          }}
+        >
+          <span className="menu-toggle-icon" aria-hidden="true">{open ? "✖" : "☰"}</span> Menu
         </button>
       </div>
     </header>

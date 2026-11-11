@@ -32,7 +32,7 @@ export default function Home() {
             <br />
             AI handles the handoffs. Pest-native modules handle the work.
           </p>
-          <Link className="btn btn-primary btn-lg" to="/contact">Show me how Dream helps my operation</Link>
+          <Link className="btn btn-primary btn-lg btn-arrow" to="/contact">Show me how Dream helps my operation</Link>
           <TrustedRow title="Trusted by leaders in pest control" />
         </div>
       </section>
