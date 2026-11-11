@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
 import {
   trusted, oldTools, painStats, arcSteps, layers, personas,
-  storyStats, arcFeatures, products, testimonials, images,
+  storyStats, arcFeatures, products, testimonials,
 } from "../data/siteData.js";
+import ImageSlot from "../components/ImageSlot.jsx";
 
 function TrustedRow({ title }) {
   return (
     <div className="trusted">
       <h6>{title}</h6>
       <ul>
-        {trusted.map((t) => (
-          <li key={t}>{t}</li>
+        {trusted.map(([name, label]) => (
+          <li key={name}>
+            <ImageSlot name={name} label={label} alt={label} />
+          </li>
         ))}
       </ul>
     </div>
@@ -57,7 +60,7 @@ export default function Home() {
           <div className="grid-3">
             {painStats.map((s) => (
               <div className="stat-card" key={s.label}>
-                <img src={s.img} alt="" />
+                <ImageSlot name={s.img} alt={s.label} />
                 <span className="badge">{s.label}</span>
                 <h2>{s.value}</h2>
                 <p>{s.text}</p>
@@ -85,7 +88,7 @@ export default function Home() {
             </ul>
           </div>
           <div>
-            <img className="rounded" src={images.chart} alt="Dream platform overview" />
+            <ImageSlot name="platform-chart" alt="Dream platform overview" />
           </div>
         </div>
       </section>
@@ -268,7 +271,7 @@ export default function Home() {
       {/* CTA */}
       <section className="cta">
         <div className="container center">
-          <span className="eyebrow light">Ready to Dream big?</span>
+          <span className="eyebrow eyebrow--light">Ready to Dream big?</span>
           <h2>Built for pest. Built by operators. See what it does for yours.</h2>
           <p>
             Operators who switch to Dream stop losing leads at handoffs, cut seven tools down to one, and see the

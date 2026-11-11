@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { footer, images } from "../data/siteData.js";
+import { footer } from "../data/siteData.js";
+import ImageSlot from "./ImageSlot.jsx";
 
 function FooterLink({ to, children }) {
   return /^https?:/.test(to) ? (
@@ -27,15 +28,15 @@ export default function Footer() {
         <div>
           <h3>Connect &amp; App</h3>
           <div className="social">
-            <a href="#" aria-label="WhatsApp"><img src={images.whatsapp} alt="WhatsApp" /></a>
-            <a href="https://www.linkedin.com/company/dream-service-software" target="_blank" rel="noreferrer"><img src={images.linkedin} alt="LinkedIn" /></a>
-            <a href="https://www.facebook.com/dreamservicecrm" target="_blank" rel="noreferrer"><img src={images.facebook} alt="Facebook" /></a>
-            <a href="https://www.instagram.com/dreamservicesoftware/" target="_blank" rel="noreferrer"><img src={images.instagram} alt="Instagram" /></a>
+            <a href="#" aria-label="WhatsApp"><ImageSlot name="icon-whatsapp" label="WA" alt="WhatsApp" /></a>
+            <a href="https://www.linkedin.com/company/dream-service-software" target="_blank" rel="noreferrer"><ImageSlot name="icon-linkedin" label="in" alt="LinkedIn" /></a>
+            <a href="https://www.facebook.com/dreamservicecrm" target="_blank" rel="noreferrer"><ImageSlot name="icon-facebook" label="f" alt="Facebook" /></a>
+            <a href="https://www.instagram.com/dreamservicesoftware/" target="_blank" rel="noreferrer"><ImageSlot name="icon-instagram" label="ig" alt="Instagram" /></a>
           </div>
           <h5>Download The App!</h5>
           <div className="stores">
-            <a href="https://apps.apple.com/in/app/pestream/id1174328672" target="_blank" rel="noreferrer"><img src={images.appStore} alt="App Store" /></a>
-            <a href="https://play.google.com/store/apps/details?id=com.info.dreampestservices" target="_blank" rel="noreferrer"><img src={images.playStore} alt="Google Play" /></a>
+            <a href="https://apps.apple.com/in/app/pestream/id1174328672" target="_blank" rel="noreferrer"><ImageSlot name="badge-app-store" label="App Store" alt="App Store" /></a>
+            <a href="https://play.google.com/store/apps/details?id=com.info.dreampestservices" target="_blank" rel="noreferrer"><ImageSlot name="badge-google-play" label="Google Play" alt="Google Play" /></a>
           </div>
         </div>
       </div>
@@ -53,7 +54,7 @@ export default function Footer() {
           <p className="powered">
             Proudly powered by{" "}
             <a href="https://quacito.com/" target="_blank" rel="noreferrer">
-              <img src={images.quacito} alt="Quacito" />
+              <ImageSlot name="logo-quacito" label="Quacito" alt="Quacito" />
             </a>
           </p>
         </div>

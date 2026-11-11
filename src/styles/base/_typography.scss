@@ -1,0 +1,87 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: v.$font-primary;
+  color: v.$color-heading; // headings on white background
+  margin: 0 0 0.6em;
+}
+
+h1,
+.h1 {
+  font-size: v.$font-size-h1;
+  font-weight: v.$font-weight-h1;
+  line-height: 1.1;
+
+  @include m.down(v.$breakpoint-desktop) {
+    font-size: 3rem;
+  }
+  @include m.down(v.$breakpoint-mobile) {
+    font-size: 2.25rem;
+  }
+}
+
+h2,
+.h2 {
+  font-size: v.$font-size-h2;
+  font-weight: v.$font-weight-h2;
+  line-height: v.$line-height-h2;
+
+  @include m.down(v.$breakpoint-tablet) {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: v.$color-muted;
+  max-width: 760px;
+  margin: 0 auto 1.6rem;
+}
+
+.eyebrow {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: v.$color-green;
+  margin-bottom: 0.8rem;
+
+  &--light {
+    color: v.$color-green;
+  }
+}
+
+.muted {
+  color: v.$color-muted;
+}
+
+.center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mt {
+  margin-top: v.$spacing-lg;
+}

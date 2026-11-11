@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { menu, images } from "../data/siteData.js";
+import { menu } from "../data/siteData.js";
+import ImageSlot from "./ImageSlot.jsx";
 
 export default function Header() {
   const [open, setOpen] = useState(false); // mobile menu
@@ -15,7 +16,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" className="logo" onClick={close}>
-          <img src={images.logo} alt="Dream Service Software" />
+          <ImageSlot name="logo" label="Logo" alt="Dream Service Software" />
         </Link>
 
         <nav className={`main-nav ${open ? "is-open" : ""}`} aria-label="Main">

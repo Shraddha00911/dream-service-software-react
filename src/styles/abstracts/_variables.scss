@@ -1,0 +1,93 @@
+// =============================================================
+// Design tokens (from live site: dreamservicesoftware.com)
+// Use in other partials:  @use "../abstracts/variables" as v;
+// =============================================================
+
+// Layout
+$container-width: 1140px;
+$container-gutter: 24px;
+
+// Font families
+$font-primary: "Poppins", Sans-serif;
+
+// Brand colors
+$color-green: #3bb17d; // main green
+$color-green-dark: #2e9c6a;
+$color-green-light: #f0faf5;
+$light-green: #ebf7f2;
+$color-light-green: $color-green-light; // alias
+
+// Neutrals
+$white: #fff;
+$color-white: #ffffff;
+$color-dark-gray: #28303d; // dark gray section background
+$color-light-gray: #f7f9fc; // light gray section background
+$color-secondary: #273244; // black secondary
+$color-gray-mid: #3d4a5c; // medium gray
+$color-heading: #1f365c; // headings on white background
+$color-subheading-dark: #d1d5dc; // subheading on dark gray background
+$color-dark-bg: #111827; // footer background
+
+// Text colors
+$color-text: #28303d;
+$color-ink: $color-text; // alias
+$color-dark: #28303d;
+$color-body: #4a5565;
+$color-muted: #6a7282;
+$color-label: #99a1af;
+$color-hero-subtitle: #d1d5dc;
+$color-danger: #e7000b;
+$light-red: #ffe2e2;
+
+// Backgrounds
+$color-light: $color-light-gray;
+
+// Borders and focus
+$color-line: #e5e7eb;
+$color-input-border: #dce2e8;
+$color-focus: rgba(59, 177, 125, 0.2);
+
+// Typography
+$font-size-h1: 4.5rem;
+$font-weight-h1: 700;
+
+$font-size-hero-subtitle: 1.5rem;
+$line-height-hero-subtitle: 40px;
+
+$font-size-h2: 2.25rem;
+$font-weight-h2: 700;
+$line-height-h2: 40px;
+
+$font-size-h3: 2.25rem;
+$font-weight-h3: 700;
+$line-height-h3: 40px;
+
+$font-size-section-heading: 2.25rem;
+$font-weight-section-heading: 700;
+$line-height-section-heading: 40px;
+
+$font-size-body: 1.1rem;
+$font-size-label: 1rem;
+
+// Spacing
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 40px;
+$spacing-xl: 64px;
+$section-padding: 80px;
+
+// Border radius
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+
+// Shadows
+$shadow-card: 0 12px 35px rgba(40, 48, 61, 0.08);
+$shadow-menu: 0 18px 45px rgba(40, 48, 61, 0.12);
+$shadow-soft: 0 8px 24px rgba(28, 39, 52, 0.06);
+
+// Breakpoints
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;

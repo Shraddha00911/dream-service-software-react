@@ -1,0 +1,37 @@
+@use "variables" as v;
+
+// min-width (mobile-first)
+@mixin up($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+// max-width (desktop-first): applies BELOW the given breakpoint
+@mixin down($bp) {
+  @media (max-width: #{$bp - 1px}) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: v.$container-width + (v.$container-gutter * 2);
+  margin-inline: auto;
+  padding-inline: v.$container-gutter;
+}
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.6rem;
+  border-radius: v.$radius-sm;
+  border: 2px solid transparent;
+  font-family: v.$font-primary;
+  font-weight: 600;
+  font-size: v.$font-size-label;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}

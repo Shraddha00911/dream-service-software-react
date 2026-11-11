@@ -1,21 +1,7 @@
 export const SITE = "https://dreamservicesoftware.com";
-const IMG = `${SITE}/wp-content/uploads`;
 
-export const images = {
-  logo: `${IMG}/2021/10/DSS-logo-1.png`,
-  lost: `${IMG}/2026/06/3.png`,
-  dissatisfied: `${IMG}/2026/06/1.png`,
-  tools: `${IMG}/2026/06/2.png`,
-  chart: `${IMG}/2026/06/chart-1024x875.png`,
-  whatsapp: `${IMG}/2021/10/Icon-ionic-logo-whatsapp.png`,
-  linkedin: `${IMG}/2021/10/Icon-awesome-linkedin-in.png`,
-  facebook: `${IMG}/2021/10/Icon-awesome-facebook.png`,
-  instagram: `${IMG}/2022/04/insta.png`,
-  appStore: `${IMG}/2021/10/Mask-Group-12@2x.png`,
-  playStore: `${IMG}/2021/10/Mask-Group-11@2x.png`,
-  quacito: `${IMG}/2021/10/quacito_logo.png`,
-  abcLogo: `${IMG}/2026/06/ABC_logo-300x139.png`,
-};
+// Images are placeholders until you add files to src/assets/images/ (see README there).
+// Names below are the file names (without extension) the <ImageSlot name="..."/> looks for.
 
 // Internal routes (react-router). Slugs match the WordPress URLs.
 export const menu = [
@@ -87,14 +73,20 @@ export const menu = [
   { label: "Blogs", to: "/blogs" },
 ];
 
-export const trusted = ["ABC Home & Commercial", "Clark Pest Control", "J.P. McCall", "Makot Service", "Big Blue Bug"];
+export const trusted = [
+  ["trusted-1", "ABC Home & Commercial"],
+  ["trusted-2", "Clark Pest Control"],
+  ["trusted-3", "J.P. McCall"],
+  ["trusted-4", "Makot Service"],
+  ["trusted-5", "Big Blue Bug"],
+];
 
 export const oldTools = ["CRM", "ERP", "Termite / WDO", "QuickBooks", "Spreadsheet", "Graphing Tool", "Paper Binder"];
 
 export const painStats = [
-  { label: "LOST REVENUE", value: "~32%", text: "of pipeline lost at every tool handoff", foot: "↓ per handoff", img: images.lost },
-  { label: "DISSATISFIED CUSTOMERS", value: "1 in 4", text: "leads lost between disconnected tools", foot: "↑ churn risk", img: images.dissatisfied },
-  { label: "OPS OVERHEAD", value: "7+ Tools", text: "7 bills, 7 logins, zero visibility", foot: "↑ cost creep", img: images.tools },
+  { label: "LOST REVENUE", value: "~32%", text: "of pipeline lost at every tool handoff", foot: "↓ per handoff", img: "stat-lost-revenue" },
+  { label: "DISSATISFIED CUSTOMERS", value: "1 in 4", text: "leads lost between disconnected tools", foot: "↑ churn risk", img: "stat-dissatisfied" },
+  { label: "OPS OVERHEAD", value: "7+ Tools", text: "7 bills, 7 logins, zero visibility", foot: "↑ cost creep", img: "stat-ops-overhead" },
 ];
 
 export const arcSteps = [
